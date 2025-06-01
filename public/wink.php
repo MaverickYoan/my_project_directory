@@ -152,6 +152,46 @@
             box-shadow: 0 0 8px var(--green-glow);
         }
 
+        .navbar {
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 0px 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger-menu .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
         main {
             flex-grow: 1;
             padding: 24px;
@@ -642,28 +682,69 @@
                 margin-left: 2rem;
             }
 
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger-menu.active .bar:nth-child(1) {
+                /* transform: rotate(45deg) translate(5px, 5px); */
+                transform: translateY(0px) rotate(-135deg);
+            }
+
+            .hamburger-menu.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger-menu.active .bar:nth-child(3) {
+                /* transform: rotate(-45deg) translate(5px, -5px); */
+                transform: translateY(0px) rotate(135deg);
+            }
         }
     </style>
 
 </head>
 
-<body>
+<body id="content" class="body">
     <header>
-        <h1>wink</h1>
-        <nav>
-            <button data-page="home" class="active" aria-label="Accueil">Accueil</button>
-            <button data-page="about" aria-label="À propos">À propos</button>
-            <button data-page="catalog" aria-label="Catalogue">Catalogue</button>
-            <button data-page="images" aria-label="Gestion des images">Images</button>
-            <button data-page="admin" aria-label="Administration">Administration</button>
-            <button data-page="contact" aria-label="Contact">Contact</button>
-            <button data-page="projet" aria-label="Projet">Projet</button>
+        <!-- Navbar section ------------->
+        <nav class="navbar">
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <h1>wink</h1>
+
+            <ul class="nav-links" id="navLinks">
+                <li><button data-page="home" class="active" aria-label="Accueil">Accueil</button></li>
+                <li><button data-page="about" aria-label="À propos">À propos</button></li>
+                <li><button data-page="catalog" aria-label="Catalogue">Catalogue</button></a></li>
+                <li><button data-page="images" aria-label="Gestion des images">Images</button>/a></li>
+                <li><button data-page="admin" aria-label="Administration">Administration</button></li>
+                <li><button data-page="contact" aria-label="Contact">Contact</button></li>
+                <li><button data-page="projet" aria-label="Projet">Projet</button></li>
+            </ul>
         </nav>
     </header>
 
     <main>
         <section id="home" class="active" aria-label="Accueil">
-            <h2>Bienvenue sur wink</h2> <img src="levelUp.jpeg" width="80%" alt="levelUp">
+            <h2>Bienvenue sur wink</h2> <img src="img/levelUp.jpeg" width="80%" alt="levelUp">
         </section>
 
         <section id="about" aria-label="À propos">
@@ -749,58 +830,58 @@
                     GitHub</a>
 
                 <a id="liens" href="http://www.youtube.com/@TeK2OuF" target="_blank" rel="noopener noreferrer"
-                    aria-label="YouTube" width="10%"><img src="8066-youtubemusic.png" width="30px">YouTube</a>
+                    aria-label="YouTube" width="10%"><img src="img/8066-youtubemusic.png" width="30px">YouTube</a>
 
                 <a id="liens" href="https://bandcamp.com/tek2ouf" target="_blank" rel="noopener noreferrer"
-                    aria-label="Bandcamp" width="10%"><img src="8066-youtubemusic.png" width="30px">Bandcamp</a>
+                    aria-label="Bandcamp" width="10%"><img src="img/8066-youtubemusic.png" width="30px">Bandcamp</a>
 
                 <a id="liens" href="https://www.mixcloud.com/yo_t2osound6tm/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Mixcloud" width="10%"><img id="liens_img" src="icon_mixcloud.png"
+                    aria-label="Mixcloud" width="10%"><img id="liens_img" src="img/icon_mixcloud.png"
                         width="30px">Mixcloud</a>
 
                 <a id="liensNb" href="https://soundcloud.com/yoan-de-menezes/sets/tek2ouf" target="_blank"
-                    rel="noopener noreferrer" aria-label="Soundcloud" width="10%"><img src="icon_soundcloud.jpg"
+                    rel="noopener noreferrer" aria-label="Soundcloud" width="10%"><img src="img/icon_soundcloud.jpg"
                         width="30px">Soundcloud0</a>
 
                 <a id="liensNb" href="https://soundcloud.com/tek2ouf" target="_blank" rel="noopener noreferrer"
-                    aria-label="Soundcloud" width="10%"><img src="icon_soundcloud.jpg" width="30px">Soundcloud1</a>
+                    aria-label="Soundcloud" width="10%"><img src="img/icon_soundcloud.jpg" width="30px">Soundcloud1</a>
 
                 <a id="liensNb" href="https://soundcloud.com/mav-yo" target="_blank" rel="noopener noreferrer"
-                    aria-label="Soundcloud" width="10%"><img src="icon_soundcloud.jpg" width="30px">
+                    aria-label="Soundcloud" width="10%"><img src="img/icon_soundcloud.jpg" width="30px">
                     Soundcloud2</a>
 
                 <a id="liensNb0" href="https://artistsinaction.bandcamp.com/music" target="_blank"
                     rel="noopener noreferrer" aria-label="Artists In Action" width="10%"><img id="liens_img"
-                        src="aia.jpg" width="40px">
+                        src="img/aia.jpg" width="40px">
                     Artists In Action</a>
 
                 <a id="liensNb2" href="http://www.technoplus.org/t,1/1071/qui-sommes-nous-?" target="_blank"
-                    rel="noopener noreferrer" aria-label="TECHNO PLUS" width="10%"><img src="headert+.png" width="50px">
+                    rel="noopener noreferrer" aria-label="TECHNO PLUS" width="10%"><img src="img/headert+.png" width="50px">
                     TECHNO PLUS</a>
 
                 <a id="liensNb" href="http://freeform.fr/qui-sommes-nous/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Freeform.fr" width="10%"><img src="freefrom-logo@2x.png" width="50px">
+                    aria-label="Freeform.fr" width="10%"><img src="img/freefrom-logo@2x.png" width="50px">
                     Freeform.fr</a>
 
                 <a id="liensNb2" href="http://www.keep-smiling.com/?p=238" target="_blank" rel="noopener noreferrer"
-                    aria-label="KEEP SMILING" width="10%"><img src="Presentation-ks-logo.jpg.crdownload" width="50px">
+                    aria-label="KEEP SMILING" width="10%"><img src="img/Presentation-ks-logo.jpg.crdownload" width="50px">
                     KEEP SMILING</a>
 
                 <a id="liensNb0" href="http://sound-system-unity.forumactif.org" target="_blank"
-                    rel="noopener noreferrer" aria-label="Sound System Unity" width="10%"><img src="sts10.jpg"
+                    rel="noopener noreferrer" aria-label="Sound System Unity" width="10%"><img src="img/sts10.jpg"
                         width="50px">
                     Sound System Unity</a>
 
                 <div class="contact-link">
                     <h2>Mail : 000tek2ouf000@gmail.com</h2>
                     <div class="beforeFooter">
-                        <img class="imgLogo" src="logoTeK2OuF02.jpg" alt="logo TeK2OuF 02">
+                        <img class="imgLogo" src="img/logoTeK2OuF02.jpg" alt="logo TeK2OuF 02">
         </section>
 
         </section>
         <section id="projet" aria-label="Projet">
             <h2>Projet</h2>
-            <img src="chatGPT_Image2_catalogue.png" alt="Projet catalogue @onlineformapro">
+            <img src="img/chatGPT_Image2_catalogue.png" alt="Projet catalogue @onlineformapro">
         </section>
     </main>
 
@@ -810,16 +891,22 @@
 
     <script>
         // Navigation
-        const navButtons = document.querySelectorAll('nav button');
-        const sections = document.querySelectorAll('main section');
+        // const navButtons = document.querySelectorAll('nav button');
+        // const sections = document.querySelectorAll('main section');
 
-        navButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                navButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const page = btn.dataset.page;
-                sections.forEach(s => s.classList.toggle('active', s.id === page));
-            });
+        // navButtons.forEach(btn => {
+        //     btn.addEventListener('click', () => {
+        //         navButtons.forEach(b => b.classList.remove('active'));
+        //         btn.classList.add('active');
+        //         const page = btn.dataset.page;
+        //         sections.forEach(s => s.classList.toggle('active', s.id === page));
+        //     });
+        // });
+
+        // * script mobile menu
+        document.getElementById('hamburgerMenu').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         });
 
         // Catalog functionality
